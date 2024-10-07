@@ -1,4 +1,5 @@
 {% for service in services -%}
+{{ service }}
     {% if service == "ntp" -%}
 test ntp
         {% for allow_client in ntp['allow-clients'] -%}
