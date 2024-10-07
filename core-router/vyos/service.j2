@@ -1,6 +1,6 @@
 {% for service in services -%}
 service: {{ service }}
-    {% if service == 'ntp' -%}
+    {% if service.service == 'ntp' -%}
 test ntp
         {% for allow_client in service.allow_clients -%}
 set service ntp allow-client address '{{ allow_client }}'
@@ -8,7 +8,7 @@ set service ntp allow-client address '{{ allow_client }}'
         {% for server in service.servers -%}
 set service ntp '{{ server }}'
         {% endfor -%}
-    {% elif service == 'ssh' -%}
+    {% elif service.service == 'ssh' -%}
 test ssh
 set service ssh port '{{ service.port }}'
 set service ssh vrf '{{ service.vrf }}'
