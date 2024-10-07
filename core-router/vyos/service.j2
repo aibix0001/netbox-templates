@@ -1,7 +1,7 @@
 {% for service in services -%}
     {% if service == "ntp" -%}
-        {% for allow-client in ntp['allow-clients'] -%}
-set service ntp allow-client address '{{ allow-client }}'
+        {% for allow_client in ntp['allow-clients'] -%}
+set service ntp allow-client address '{{ allow_client }}'
         {% endfor -%}
         {% for server in ntp.servers -%}
 set service ntp '{{ server }}'
