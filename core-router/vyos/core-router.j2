@@ -9,3 +9,6 @@
         {% endfor -%}
     {% endif -%}
 {% endblock -%}
+{% block services -%}
+{% include 'core-router/vyos/service.j2' -%}
+{% endblock -%}
