@@ -1,11 +1,11 @@
-{% extends 'base/base.j2' %}
-{% block content %}
+{% extends 'base/base.j2' -%}
+{% block content -%}
     {% for interface in device.interfaces.all() -%}
-        {% include 'core-router/vyos/interface.j2' %}
-    {% endfor %}
+        {% include 'core-router/vyos/interface.j2' -%}
+    {% endfor -%}
     {% if wg_ifaces is defined -%}
         {% for wg_iface in wg_ifaces -%}
-            {% include 'core-router/vyos/wireguard.j2' %}
-        {% endfor %}
-    {% endif %}
-{% endblock %}
+            {% include 'core-router/vyos/wireguard.j2' -%}
+        {% endfor -%}
+    {% endif -%}
+{% endblock -%}
