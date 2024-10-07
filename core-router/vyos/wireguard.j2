@@ -1,5 +1,3 @@
-{% extends 'base/base.j2' %}
-{% block content %}
 {% if wg_ifaces is defined -%}
 {% for wg_iface in wg_ifaces -%}
 set interfaces {{ wg_iface.interface_type }} {{ wg_iface.interface }} private-key '{{ wg_iface.private_key }}'
@@ -15,4 +13,3 @@ set interfaces {{ wg_iface.interface_type }} {{ wg_iface.interface }} peer {{ pe
 set interfaces {{ wg_iface.interface_type }} {{ wg_iface.interface }} address '{{ wg_iface.ipv4_address }}'
 {% endfor -%}
 {% endif -%}
-{% endblock %}
