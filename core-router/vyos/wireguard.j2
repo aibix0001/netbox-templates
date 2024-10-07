@@ -1,0 +1,18 @@
+{% extends 'base.j2' %}
+{% block content %}
+{% if wg_ifaces is defined -%}
+{% for wg_iface in wg_ifaces -%}
+set interfaces {{ wg_iface.interface_type }} {{ wg_iface.interface }} private-key '{{ wg_iface.private_key }}'
+set interfaces {{ wg_iface.interface_type }} {{ wg_iface.interface }} port {{ wg_iface.port }}
+{% if wg_iface.peers is defined -%}
+{% for peer in wg_iface.peers -%}
+set interfaces {{ wg_iface.interface_type }} {{ wg_iface.interface }} peer {{ peer.peer }} address '{{ peer.address }}'
+set interfaces {{ wg_iface.interface_type }} {{ wg_iface.interface }} peer {{ peer.peer }} allowed-ips '{{ peer.allowed_ips }}'
+set interfaces {{ wg_iface.interface_type }} {{ wg_iface.interface }} peer {{ peer.peer }} port {{ peer.port }}
+set interfaces {{ wg_iface.interface_type }} {{ wg_iface.interface }} peer {{ peer.peer }} public-key '{{ peer.public_key }}'
+{% endfor -%}
+{% endif -%}
+set interfaces {{ wg_iface.interface_type }} {{ wg_iface.interface }} address '{{ wg_iface.ipv4_address }}'
+{% endfor -%}
+{% endif -%}
+{% endblock %}
