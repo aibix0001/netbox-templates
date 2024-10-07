@@ -1,5 +1,5 @@
 {% extends 'base/base.j2' -%}
-{% block content -%}
+{% block interfaces -%}
     {% for interface in device.interfaces.all() -%}
         {% include 'core-router/vyos/interface.j2' -%}
     {% endfor -%}
