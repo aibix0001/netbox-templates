@@ -1,4 +1,4 @@
-{% for pl in p.prefix_lists -%}      
+{% for pl in p.prefix_lists %}      
 set policy prefix-list {{ pl.prefix_list }} description {{ pl.description }}
 {% for r in pl.rules -%}
 set policy prefix-list {{ pl.prefix_list }} rule {{ r.rule }} action {{ r.action }}
