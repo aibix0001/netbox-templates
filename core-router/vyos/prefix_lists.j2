@@ -1,12 +1,12 @@
-{% for pl in p.prefix_lists %}      
+{% for pl in p.prefix_lists -%}      
 set policy prefix-list {{ pl.prefix_list }} description {{ pl.description }}
-    {% for r in pl.rules %}
+    {% for r in pl.rules -%}
 set policy prefix-list {{ pl.prefix_list }} rule {{ r.rule }} action {{ r.action }}
-        {% if r.ge is defined %}
+        {% if r.ge is defined -%}
 set policy prefix-list {{ pl.prefix_list }} rule {{ r.rule }} ge {{ r.ge }}                  
-        {% endif %}
-        {% for pfx in r.prefixes %}
+        {% endif -%}
+        {% for pfx in r.prefixes -%}
 set policy prefix-list {{ pl.prefix_list }} rule {{ r.rule }} prefix {{ pfx }}                    
-        {% endfor %}
-    {% endfor %}
-{% endfor %}  
+        {% endfor -%}
+    {% endfor -%}
+{% endfor -%}  
