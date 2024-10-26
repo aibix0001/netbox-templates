@@ -2,6 +2,7 @@
 {% block policies -%}
     {% for p in policies %}
         {{ p }}
+        {{ p.prefix_lists }}
         {% if p == "prefix_lists" %}
             prefix_lists vorhanden
             {{ p.prefix_list }}
