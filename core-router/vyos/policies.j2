@@ -2,7 +2,7 @@
 {% block policies %}
 {% for p in policies -%}
 {% if p.prefix_lists is defined -%}
-{% include 'core-router/vyos/prefix_lists.j2' %}
+{% include 'core-router/vyos/prefix_lists.j2' -%}
 {% endif %}
 {% if p.route_maps is defined %}
 {% include 'core-router/vyos/route_maps.j2' -%}
