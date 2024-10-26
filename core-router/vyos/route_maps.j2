@@ -1,4 +1,4 @@
-{% for rm in p.route_maps %}
+{% for rm in p %}
 set policy route-map {{ rm.route_map }} description {{ rm.description }}
     {% for r in rm.rules %}
 set policy route-map {{ rm.route_map }} rule {{ r.rule }} action {{ r.action }}

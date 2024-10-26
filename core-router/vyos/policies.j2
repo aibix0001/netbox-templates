@@ -1,10 +1,10 @@
 {% extends 'base/base.j2' -%}
 {% block policies -%}
     {% for p in policies %}
-        {% if prefix_lists is defined %}
+        {% if p == "prefix_lists" %}
             {% include 'core-router/vyos/prefix_lists.j2' -%}
         {% endif %}
-        {% if route_maps is defined -%}
+        {% if p == "route_maps" -%}
             {% include 'core-router/vyos/route_maps.j2' -%}
         {% endif -%}
     {% endfor -%}
