@@ -11,7 +11,7 @@
 {% endblock -%}
 {% block policies %}
     {% if policies is defined %}
-        {% include 'core-router/vyos/policies.j2' %}
+        {% include 'core-router/vyos/policies.j2' -%}
     {% endif %}
 {% endblock %}
 {% block services -%}
