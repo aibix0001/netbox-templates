@@ -1,12 +1,12 @@
 {% for rm in p.route_maps -%}
 set policy route-map {{ rm.route_map }} description {{ rm.description }}
-    {% for r in rm.rules -%}
+{% for r in rm.rules -%}
 set policy route-map {{ rm.route_map }} rule {{ r.rule }} action {{ r.action }}
-        {% if r.match is defined -%}
+{% if r.match is defined -%}
 set policy route-map {{ rm.route_map }} rule {{ r.rule }} match {{ r.match }}
-        {% endif -%}
-        {% if r.set is defined -%}
+{% endif -%}
+{% if r.set is defined -%}
 set policy route-map {{ rm.route_map }} rule {{ r.rule }} set {{ r.set }}
-        {% endif -%}
-    {% endfor -%}
+{% endif -%}
+{% endfor -%}
 {% endfor -%}
