@@ -1,7 +1,7 @@
 {% extends 'base/base.j2' %}
 {% block policies -%}
-{%- for p in policies -%}
-{%- if p.prefix_lists is defined -%}
+{% for p in policies -%}
+{% if p.prefix_lists is defined -%}
 {% include 'core-router/vyos/prefix_lists.j2' -%}
 {%- endif -%}
 {%- if p.route_maps is defined -%}
