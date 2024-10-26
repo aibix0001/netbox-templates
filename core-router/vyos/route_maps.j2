@@ -8,5 +8,5 @@ set policy route-map {{ rm.route_map }} rule {{ r.rule }} match {{ r.match }}
 {% if r.set is defined -%}
 set policy route-map {{ rm.route_map }} rule {{ r.rule }} set {{ r.set }}
 {% endif -%}
-{% endfor -%}
-{% endfor -%}
+{%- endfor -%}
+{%- endfor -%}

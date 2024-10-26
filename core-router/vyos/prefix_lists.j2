@@ -7,6 +7,6 @@ set policy prefix-list {{ pl.prefix_list }} rule {{ r.rule }} ge {{ r.ge }}
 {% endif -%}
 {% for pfx in r.prefixes -%}
 set policy prefix-list {{ pl.prefix_list }} rule {{ r.rule }} prefix {{ pfx }}                    
-{% endfor -%}
-{% endfor -%}
-{% endfor -%}  
+{%- endfor -%}
+{%- endfor -%}
+{%- endfor -%}  
