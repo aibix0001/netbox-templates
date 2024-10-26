@@ -4,7 +4,7 @@
 {% if p.prefix_lists is defined -%}
 {% include 'core-router/vyos/prefix_lists.j2' -%}
 {% endif -%}
-{% if p.route_maps is defined %}
+{% if p.route_maps is defined -%}
 {% include 'core-router/vyos/route_maps.j2' -%}
 {% endif -%}
 {%- endfor -%}
