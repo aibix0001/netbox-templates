@@ -1,4 +1,3 @@
-"#jinja2: lstrip_blocks: True"
 {% for rm in p.route_maps -%}
 set policy route-map {{ rm.route_map }} description {{ rm.description }}
     {% for r in rm.rules -%}
