@@ -4,6 +4,7 @@ in block routing
 {% for r in routing_protocols -%}
 {{ r }}
 {% if r.bgp is defined -%}
+{{ r.bgp }}
 {% include 'core_router/vyos/routing_bgp.j2' -%}
 {% endif -%}
 {%- endfor -%}
