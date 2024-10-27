@@ -1,5 +1,26 @@
 {# bgp #}
 {# parameters #}
-{{ rp }}
 set protocols bgp parameters router-id '{{ rp.router_id }}'
 set protocols bgp system-as '{{ rp.as }}'
+    {# 'global' afis #}
+    {% if rp.afis is defined %}
+        {% for af in rp.afis %}
+            {% if af.aggregates is defined %}
+                {% for aggregate in af.aggregates %}
+set protocols bgp address-family {{ af.afi }} aggregate-address {{ aggregate }}
+                {% endfor %}
+            {% endif %}
+            {% if af.redistribute is defined %}
+                {% for rd in af.redistribute %}
+set protocols bgp address-family {{ af.afi }} redistribute {{ rd }}
+                {%endfor %}
+            {% endif %}
+            {% if af.networks is defined %}
+                {% for network in af.networks %}
+set protocols bgp address-family {{ af.afi }} network {{ network }}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+gibbet net
+    {% endif %}
