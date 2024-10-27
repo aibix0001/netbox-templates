@@ -8,19 +8,19 @@ set protocols bgp system-as '{{ rp.as }}'
 {% if af.aggregates is defined %}
 {% for aggregate in af.aggregates %}
 set protocols bgp address-family {{ af.afi }} aggregate-address {{ aggregate }}
-{% endfor %}
+{% endfor -%}
 {% endif %}
 {% if af.redistribute is defined %}
 {% for rd in af.redistribute %}
 set protocols bgp address-family {{ af.afi }} redistribute {{ rd }}
-{%endfor %}
+{%endfor -%}
 {% endif %}
 {% if af.networks is defined %}
 {% for network in af.networks %}
 set protocols bgp address-family {{ af.afi }} network {{ network }}
-{% endfor %}
+{% endfor -%}
 {% endif %}
-{% endfor %}
+{% endfor -%}
 {% else %}
 gibbet net
 {% endif %}
@@ -44,6 +44,6 @@ set protocols bgp neighbor {{ n.ipv4_address }} address-family {{ af.afi }} rout
                 {% if af.rm_import is defined %}
 set protocols bgp neighbor {{ n.ipv4_address }} address-family {{ af.afi }} route-map import '{{ af.rm_import }}'
                 {% endif %}
-            {% endfor %}
+            {% endfor -%}
         {% endif %}
-    {% endfor %}
+    {% endfor -%}
