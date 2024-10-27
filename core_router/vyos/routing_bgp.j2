@@ -1,8 +1,7 @@
 {# bgp #}
-{% if r.bgp is defined %}
     {# parameters #}
-set protocols bgp parameters router-id '{{ bgp.router_id }}'
-set protocols bgp system-as '{{ bgp.as }}'
+set protocols bgp parameters router-id '{{ r.bgp.router_id }}'
+set protocols bgp system-as '{{ r.bgp.as }}'
     {# 'global' afis #}
     {% if bgp.afis is defined %}
         {% for af in bgp.afis %}
