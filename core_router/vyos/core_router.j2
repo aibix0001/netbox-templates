@@ -1,7 +1,7 @@
 {%- extends 'base/base.j2' -%}
 {%- block interfaces -%}
     {%- for interface in device.interfaces.all() -%}
-        {%- include 'coure_router/vyos/interface.j2' -%}
+        {%- include 'core_router/vyos/interface.j2' -%}
     {%- endfor -%}
     {%- if wg_ifaces is defined -%}
         {%- for wg_iface in wg_ifaces -%}
