@@ -38,11 +38,11 @@ set protocols bgp neighbor {{ n.ipv4_address }} address-family {{ af.afi }} {{ a
                 {% if af.rr is defined %}
 set protocols bgp neighbor {{ n.ipv4_address }} address-family {{ af.afi }} {{ af.rr }}
                 {% endif %}
-                {% if af.route_maps.route_map_export is defined %}
-set protocols bgp neighbor {{ n.ipv4_address }} address-family {{ af.afi }} route-map export '{{ af.route_maps.route_map_export }}'
+                {% if af.rm_export is defined %}
+set protocols bgp neighbor {{ n.ipv4_address }} address-family {{ af.afi }} route-map export '{{ af.rm_export }}'
                 {% endif %}
-                {% if af.route_maps.route_map_import is defined %}
-set protocols bgp neighbor {{ n.ipv4_address }} address-family {{ af.afi }} route-map import '{{ af.route_maps.route_map_import }}'
+                {% if af.rm_import is defined %}
+set protocols bgp neighbor {{ n.ipv4_address }} address-family {{ af.afi }} route-map import '{{ af.rm_import }}'
                 {% endif %}
             {% endfor %}
         {% endif %}
