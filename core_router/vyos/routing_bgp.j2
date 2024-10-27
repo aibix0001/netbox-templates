@@ -1,6 +1,7 @@
 {# bgp #}
     {# parameters #}
 in routing bgp igp
+{{ rp }}
 set protocols bgp parameters router-id '{{ rp.router_id }}'
 set protocols bgp system-as '{{ rp.as }}'
     {# 'global' afis #}
