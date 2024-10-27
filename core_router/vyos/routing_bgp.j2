@@ -1,11 +1,11 @@
 {# bgp #}
     {# parameters #}
 in routing bgp igp
-set protocols bgp parameters router-id '{{ r.bgp.router_id }}'
-set protocols bgp system-as '{{ r.bgp.as }}'
+set protocols bgp parameters router-id '{{ rp.router_id }}'
+set protocols bgp system-as '{{ rp.as }}'
     {# 'global' afis #}
-    {% if bgp.afis is defined %}
-        {% for af in bgp.afis %}
+    {% if rp.afis is defined %}
+        {% for af in rp.afis %}
             {% if af.aggregates is defined %}
                 {% for aggregate in af.aggregates %}
 set protocols bgp address-family {{ af.afi }} aggregate-address {{ aggregate }}
@@ -24,7 +24,7 @@ set protocols bgp address-family {{ af.afi }} network {{ network }}
         {% endfor %}
     {% endif %}
     {# neighbors #}
-    {% for n in bgp.neighbors %}
+    {% for n in rp.neighbors %}
 set protocols bgp neighbor {{ n.ipv4_address }} description '{{ n.description }}'
 set protocols bgp neighbor {{ n.ipv4_address }} remote-as '{{ n.remote_as }}'
 set protocols bgp neighbor {{ n.ipv4_address }} update-source '{{ n.update_source }}'
@@ -47,8 +47,8 @@ set protocols bgp neighbor {{ n.ipv4_address }} address-family {{ af.afi }} rout
         {% endif %}
     {% endfor %}
     {# neighbors6 #}
-    {% if bgp.neighbors6 is defined %}
-        {% for n in bgp.neighbors6 %}
+    {% if rp.neighbors6 is defined %}
+        {% for n in rp.neighbors6 %}
 set protocols bgp neighbor {{ n.ipv6_address }} description '{{ n.description }}'
 set protocols bgp neighbor {{ n.ipv6_address }} remote-as '{{ n.remote_as }}'
 set protocols bgp neighbor {{ n.ipv6_address }} update-source '{{ n.update_source }}'
