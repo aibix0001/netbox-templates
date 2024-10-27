@@ -14,6 +14,11 @@
         {%- include 'core-router/vyos/policies.j2' -%}
     {%- endif -%}
 {%- endblock -%}
+{%- block routing -%}
+    {%- if routing is defined -%}
+        {%- include 'core-router/vyos/routing.j2' -%}
+    {%- endif -%}
+{%- endblock -%}
 {%- block services -%}
     {%- include 'core-router/vyos/service.j2' -%}
 {%- endblock -%}
