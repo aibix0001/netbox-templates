@@ -2,7 +2,7 @@
 {% block routing %}
 {% for r in routing -%}
 {% if r.bgp is defined -%}
-{% include 'core-router/vyos/routing_bgp.j2' -%}
+{% include 'coure_router/vyos/routing_bgp.j2' -%}
 {% endif -%}
 {%- endfor -%}
 {% endblock -%}
