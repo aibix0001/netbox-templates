@@ -15,7 +15,7 @@
     {%- endif -%}
 {%- endblock -%}
 {%- block routing -%}
-    {%- if routing is defined -%}
+    {%- if routing_protocols is defined -%}
         {%- include 'core_router/vyos/routing.j2' -%}
     {%- endif -%}
 {%- endblock -%}
