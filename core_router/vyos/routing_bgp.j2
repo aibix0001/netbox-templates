@@ -1,5 +1,5 @@
 {# bgp #}
-{% if bgp is defined %}
+{% if r.bgp is defined %}
     {# parameters #}
 set protocols bgp parameters router-id '{{ bgp.router_id }}'
 set protocols bgp system-as '{{ bgp.as }}'

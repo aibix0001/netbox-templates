@@ -1,6 +1,6 @@
 {% extends 'base/base.j2' %}
 {% block routing %}
-{% for r in routing -%}
+{% for r in routing_protocols -%}
 {% if r.bgp is defined -%}
 {% include 'core_router/vyos/routing_bgp.j2' -%}
 {% endif -%}
