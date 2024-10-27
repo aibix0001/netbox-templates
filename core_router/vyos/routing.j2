@@ -2,7 +2,7 @@
 {% block routing %}
 in block routing
 {% for rp in routing_protocols -%}
-{% if rp == "bgp" -%}
+{% if rp.protocol == "bgp" -%}
 {{ rp.as }}
 {% include 'core_router/vyos/routing_bgp.j2' -%}
 {% endif -%}
