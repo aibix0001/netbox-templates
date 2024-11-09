@@ -1,13 +1,5 @@
 {% extends 'base/base.j2' %}
 {% block routing %}
-{% for interface in device.interfaces.all() %}
-{% if interface.name == "lo" %}
-{% for ip in interface.ip_addresses.all() %}
-{% set router_id_address = ip.address %}
-router_id_address ist {{ router_id_address }} in routing.j2
-{% endfor %}
-{% endif %}
-{% endfor %}
 {% for rp in routing_protocols %}
 {% if rp.protocol == "bgp" -%}
 {% include 'core_router/vyos/routing_bgp.j2' -%}
