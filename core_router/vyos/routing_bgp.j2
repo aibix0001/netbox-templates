@@ -22,28 +22,27 @@ set protocols bgp address-family {{ af.afi }} network {{ network }}
 {% endif %}
 {% endfor -%}
 {% else %}
-gibbet net
 {% endif %}
-    {# neighbors #}
-    {% for n in rp.neighbors %}
+{# neighbors #}
+{% for n in rp.neighbors %}
 set protocols bgp neighbor {{ n.ipv4_address }} description '{{ n.description }}'
 set protocols bgp neighbor {{ n.ipv4_address }} remote-as '{{ n.remote_as }}'
 set protocols bgp neighbor {{ n.ipv4_address }} update-source '{{ n.update_source }}'
-        {% if n.afis is defined %}
-            {% for af in n.afis %}
+{% if n.afis is defined %}
+{% for af in n.afis %}
 set protocols bgp neighbor {{ n.ipv4_address }} address-family {{ af.afi }}
-                {% if af.next_hop is defined %}
+{% if af.next_hop is defined %}
 set protocols bgp neighbor {{ n.ipv4_address }} address-family {{ af.afi }} {{ af.next_hop }}
-                {% endif %}
-                {% if af.rr is defined %}
+{% endif %}
+{% if af.rr is defined %}
 set protocols bgp neighbor {{ n.ipv4_address }} address-family {{ af.afi }} {{ af.rr }}
-                {% endif %}
-                {% if af.rm_export is defined %}
+{% endif %}
+{% if af.rm_export is defined %}
 set protocols bgp neighbor {{ n.ipv4_address }} address-family {{ af.afi }} route-map export '{{ af.rm_export }}'
-                {% endif %}
-                {% if af.rm_import is defined %}
+{% endif %}
+{% if af.rm_import is defined %}
 set protocols bgp neighbor {{ n.ipv4_address }} address-family {{ af.afi }} route-map import '{{ af.rm_import }}'
-                {% endif %}
-            {% endfor -%}
-        {% endif %}
-    {% endfor -%}
+{% endif %}
+{% endfor -%}
+{% endif %}
+{% endfor -%}
