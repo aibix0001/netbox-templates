@@ -48,5 +48,5 @@ set protocols bgp neighbor {{ n.ipv4_address }} address-family {{ af.afi }} rout
 {% endfor -%}
 test22 ist {{ test22 }}
 router_id_address ist {{ router_id_address }}
-{% set router_id_routing_bgp = {% include 'core_router/vyos/routing_router_id.j2' %} %}
+{% set router_id_routing_bgp = include 'core_router/vyos/routing_router_id.j2' %}
 router is in routing_bgp ist {{ router_id_routing_bgp }}
