@@ -3,4 +3,4 @@
 set interfaces ethernet {{ interface }} address '{{ ip.address }}'
 {% endif -%}
 {% endfor -%}
-{{ device.interfaces.find('name', 'lo').ip_addresses.first.ip }}
+{{ device.interfaces.lo.ip_addresses.first.ip }}
