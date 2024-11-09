@@ -4,7 +4,7 @@ set interfaces ethernet {{ interface }} address '{{ ip.address }}'
 {% endif -%}
 {% if interface.name == "lo" %}
 {% set loopback2 = ip.address %}
-loopback2 ip ist {{ loopback }}
+loopback2 ip ist {{ loopback2 }}
 {% endif %}
 {% endfor -%}
 tests
