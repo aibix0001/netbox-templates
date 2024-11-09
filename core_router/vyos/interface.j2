@@ -7,6 +7,3 @@ set interfaces ethernet {{ interface }} address '{{ ip.address }}'
 loopback2 ip ist {{ loopback2 }}
 {% endif %}
 {% endfor -%}
-tests
-{%- set loopback = interfaces | selectattr('name', 'eq', 'lo') | first -%}
-loopback ip ist {{ loopback }}
