@@ -3,3 +3,4 @@
 set interfaces ethernet {{ interface }} address '{{ ip.address }}'
 {% endif -%}
 {% endfor -%}
+{{ interface.ip.addresses.all() }}
