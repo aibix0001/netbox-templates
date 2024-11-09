@@ -1,5 +1,4 @@
 {%- extends 'base/base.j2' -%}
-{% set test22 = "das ist ein test" %}
 {%- block interfaces -%}
     {%- for interface in device.interfaces.all() -%}
         {%- include 'core_router/vyos/interface.j2' -%}
