@@ -1,6 +1,7 @@
 {% for ip in interface.ip_addresses.all() -%}
+{{ ip.address }}
 {% if interface.type == "1000base-t" or interface.type == "10gbase-t" -%}
 set interfaces ethernet {{ interface }} address '{{ ip.address }}'
 {% endif -%}
 {% endfor -%}
-{{ interface.ip.addresses.all() }}
+
