@@ -1,6 +1,12 @@
 {% for ip in interface.ip_addresses.all() -%}
-{{ ip.address }}
 {% if interface.type == "1000base-t" or interface.type == "10gbase-t" -%}
 set interfaces ethernet {{ interface }} address '{{ ip.address }}'
 {% endif -%}
+{% if interface.name == "lo" %}
+{% set loopback2 = ip.address %}
+loopback2 ip ist {{ loopback }}
+{% endif %}
 {% endfor -%}
+tests
+{%- set loopback = interfaces | selectattr('name', 'eq', 'lo') | first -%}
+loopback ip ist {{ loopback }}
