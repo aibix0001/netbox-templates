@@ -1,4 +1,5 @@
 {# bgp #}
+router id from netbox is: {{ router_id_from_netbox }}
 {# parameters #}
 set protocols bgp parameters router-id '{{ rp.router_id }}'
 set protocols bgp system-as '{{ rp.as }}'

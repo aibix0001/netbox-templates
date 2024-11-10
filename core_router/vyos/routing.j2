@@ -1,4 +1,5 @@
 {% extends 'base/base.j2' %}
+{% set router_id_from_netbox = (device.interfaces.all() | selectattr("name", "equalto", "lo") | first).ip_addresses.all()[0].address.ip %}
 {% block routing %}
 {% for rp in routing_protocols %}
 {% if rp.protocol == "bgp" -%}
